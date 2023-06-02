@@ -1,22 +1,26 @@
 package com.example.movieappusingmvvm.ViewModel;
 
-import android.content.Context;
+import android.app.Application;
 
-import com.example.movieappusingmvvm.Service.Model.MovieModel;
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.MutableLiveData;
+
 import com.example.movieappusingmvvm.Service.Model.Result;
-import com.example.movieappusingmvvm.Service.Network.APIservice;
-import com.example.movieappusingmvvm.Service.Network.RetrofitInstance;
 import com.example.movieappusingmvvm.Service.Repository.MovieRepository;
 
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+public class MovieListViewModel extends AndroidViewModel {
+    private MovieRepository movieRepository;
 
-public class MovieListViewModel {
+    public MovieListViewModel(@NonNull Application application) {
+        super(application);
+        movieRepository=MovieRepository.getInstance(application);
+    }
 
-
-
-
+    public MutableLiveData<List<Result>> getTopRatedMovieLists()
+    {
+        return movieRepository.getTopRatedMovieList();
+    }
 }
