@@ -16,6 +16,7 @@
 
 ![Screenshot_20230603_134909](https://github.com/nayemuddinn/Movie-App/assets/126597905/c1ea4036-7bd5-4c9e-99f9-c424a3929406) 
 
+<br/>
 
 ![Capture](https://github.com/nayemuddinn/Movie-App/assets/126597905/c7f2df44-afc3-4ce7-820a-a39ff0f8c057)
 
