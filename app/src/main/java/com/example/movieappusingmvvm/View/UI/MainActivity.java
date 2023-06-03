@@ -3,6 +3,7 @@ package com.example.movieappusingmvvm.View.UI;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerView=findViewById(R.id.recyle);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         mViewModel=new ViewModelProvider(this).get(MovieListViewModel.class);
         mViewModel.getTopRatedMovieLists().observe(this, new Observer<List<Result>>() {
             @Override
