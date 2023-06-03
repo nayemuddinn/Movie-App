@@ -1,6 +1,7 @@
 package com.example.movieappusingmvvm.Service.Repository;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 
@@ -28,8 +29,9 @@ public class MovieRepository {
     {
         if(instance==null)
         {
-            instance=new MovieRepository();
             mcontext=context;
+            instance=new MovieRepository();
+
 
 
         }
@@ -45,20 +47,20 @@ public class MovieRepository {
         }
 
         APIservice apIservice= RetrofitInstance.getRetrofit().create(APIservice.class);
-        Call<MovieModel> call =apIservice.getMovieList();
+        Call<MovieModel> call =apIservice.getTopRatedMovieList();
         call.enqueue(new Callback<MovieModel>() {
             @Override
             public void onResponse(Call<MovieModel> call, Response<MovieModel> response) {
                  movieModel=response.body();
                  mresult=movieModel.getResults();
-
                  mLiveData.postValue(mresult);
-
+                Toast.makeText(mcontext,"Success",Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onFailure(Call<MovieModel> call, Throwable t) {
+                Toast.makeText(mcontext,"Failed",Toast.LENGTH_SHORT).show();
 
             }
         });

@@ -38,7 +38,7 @@ public class movieAdapter extends RecyclerView.Adapter<ViewHolder> {
         holder.Rating.setText(mList.get(position).getVoteAverage().toString());
         holder.Release_Date.setText(mList.get(position).getReleaseDate());
 
-        Glide.with(context).load("https://image.tmdb.org/t/p/w500/"+mList.get(position).getPosterPath()).into(holder.imageView);
+        Glide.with(context).load("https://image.tmdb.org/t/p/w500"+mList.get(position).getPosterPath()).into(holder.imageView);
 
     }
 

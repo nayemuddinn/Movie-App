@@ -4,6 +4,7 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.movieappusingmvvm.Service.Model.Result;
@@ -19,7 +20,7 @@ public class MovieListViewModel extends AndroidViewModel {
         movieRepository=MovieRepository.getInstance(application);
     }
 
-    public MutableLiveData<List<Result>> getTopRatedMovieLists()
+    public LiveData<List<Result>> getTopRatedMovieLists()
     {
         return movieRepository.getTopRatedMovieList();
     }

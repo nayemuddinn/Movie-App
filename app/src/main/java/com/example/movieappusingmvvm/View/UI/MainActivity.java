@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerView=findViewById(R.id.recyle);
-        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mViewModel=new ViewModelProvider(this).get(MovieListViewModel.class);
         mViewModel.getTopRatedMovieLists().observe(this, new Observer<List<Result>>() {
             @Override
